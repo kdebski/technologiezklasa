@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Szyfr przesuwny</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous" />
+  <script src="transpose.js" ></script>
+</head>
+<body>
+  <h1>Szyfr Transponowany</h1>
+  <textarea id="unsecured_text" placeholder="Dane niezaszyfrowane" rows="10" cols="100"></textarea>
+  <br/>
+  Hasło: <input type="text" value="script" id="key"/>
+  Dopełnienie: <input type="text" value="x" id="pad"/>
+  <br/>
+  <input type="button" value="v szyfruj v" onclick="encrypt()"/>
+  <input type="button" value="^ odszyfruj ^" onclick="decrypt()"/>
+  <br/>
+  <textarea id="secured_text" placeholder="Dane zaszyfrowane" rows="10" cols="100"></textarea>
+</body>
+</html>

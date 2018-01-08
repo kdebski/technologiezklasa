@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Szyfr Cezara</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <script><!--
+  function ceasarEncryptCharWithBeggining(beginLetterCode, alphabetLength, letterCode, offset) {
+    return String.fromCharCode((letterCode - beginLetterCode + offset + alphabetLength) % alphabetLength + beginLetterCode);
+  }
+  function ceasarEncryptChar(letter, offset) {
+    if (letter >= 'a' && letter <= 'z') {
+      encryptedLetter = ceasarEncryptCharWithBeggining('a'.charCodeAt(0), 26, letter.charCodeAt(0), offset);
+    } else {
+      encryptedLetter = letter;
+    }
+    return encryptedLetter;
+  }
+  function ceasarEncrypt(unsecured_text, offset) {
+    var secured_text = "";
+    for (var i=0; i<unsecured_text.length; i++) {
+      secured_text += ceasarEncryptChar(unsecured_text.charAt(i), offset);
+    }
+    return secured_text;
+  }
+  function encrypt() {
+    document.getElementById("secured_text").value = ceasarEncrypt(document.getElementById("unsecured_text").value.toLowerCase(), getOffset());
+  }
+  function decrypt() {
+    document.getElementById("unsecured_text").value = ceasarEncrypt(document.getElementById("secured_text").value.toLowerCase(), 0-getOffset());
+  }
+  function getOffset() {
+    return parseInt(document.getElementById("offset").value) || 5;
+  }
+  --></script>
+</head>
+<body>
+  <h1>Szyfr Cezara</h1>
+  <textarea id="unsecured_text" placeholder="Dane niezaszyfrowane" rows="10" cols="100"></textarea>
+  <br/>
+  Offset: <input type="text" value="5" id="offset">
+  <input type="button" value="v szyfruj v" onclick="encrypt()"/>
+  <input type="button" value="^ odszyfruj ^" onclick="decrypt()"/>
+  <br/>
+  <textarea id="secured_text" placeholder="Dane zaszyfrowane" rows="10" cols="100"></textarea>
+</body>
+</html>
